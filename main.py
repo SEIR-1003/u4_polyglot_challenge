@@ -13,7 +13,18 @@
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
 #-----------------------------------------------
-# Solution Goes Here - >
+# Solution Goes Here - > 
+
+def add_list(*nums):
+
+    total = 0
+
+    for num in nums:
+        total += num
+    print(total)
+
+add_list(1, 2, 3)
+
 #-----------------------------------------------
 
 
@@ -31,6 +42,12 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def remove_ends(string):
+    new_string = string[1:-1]
+    print(new_string)
+
+remove_ends('string')
+
 #-----------------------------------------------
 
 
@@ -50,6 +67,14 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def is_palindrome(string):
+    if (string == string[::-1]):
+        return True
+    else:
+        return False
+print(is_palindrome('mattttam'))
+print(is_palindrome('matt'))
+
 #-----------------------------------------------
 
 
@@ -68,6 +93,12 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+def is_prime(num):
+    if (num % 2 == 0):
+        print(True)
+    else:
+        print(False)
+is_prime(5)
 #-----------------------------------------------
 
 
