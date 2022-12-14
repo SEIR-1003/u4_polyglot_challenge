@@ -14,6 +14,22 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def add_list (values):
+    sum = 0
+    for element in values:
+        if isinstance(element, (float, int)):
+            sum = sum + element
+        else: 
+            sum = "NaN"
+    print(sum)
+    return (sum)
+# add_list()
+
+#Still doesn't work for no value added as a paramater
+    #Error: add_list() missing 1 required positional argument: 'values
+#Still doesn't work for a single value
+    #TypeError: 'int' object is not iterable
+
 #-----------------------------------------------
 
 
@@ -31,6 +47,18 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def remove_ends(value):
+    if len(value) < 3:
+        print ("")
+        return ""
+    else:
+        print(value[1:-1])
+    return
+# remove_ends("Hello")
+
+#Referenced TA Office Hours w/ Tylus and Lerenzo for colon trick
+#https://datagy.io/python-palindrome
+
 #-----------------------------------------------
 
 
@@ -50,6 +78,24 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def is_palindrome(string):
+    if len(string) <=1:
+        print("true")
+        return "true"
+
+    if string.lower().replace(" ","") == string.lower().replace(" ","")[::-1]:
+        print("true")
+        return "true"
+
+    else: 
+        print("false")
+        return "false"
+
+# is_palindrome("A nut for a jar of tuna")
+
+#Resources:
+#https://www.programiz.com/python-programming/methods/string/lower
+#https://datagy.io/python-palindrome
 #-----------------------------------------------
 
 
@@ -68,6 +114,29 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+def is_prime(value):
+    #A prime number is a whole number greater than 1, which is only divisible by 1 and itself. So, anything < 2 must be false.
+    if value < 2:
+        print("false")
+        return "false"
+    #2 and 3 are prime numbers, since they are only divisible by 1 and itself (AKA my early-on outliers)
+    if (value == 2) or (value == 3):
+        print("true")
+        return "true"
+    
+    if (value >= 4):
+        for comparison in range (2, value):
+            if value % comparison == 0:
+                print("false")
+                return "false"
+            else:
+                print("true")
+                return "true"
+
+is_prime(4)
+#Resource Used:
+#https://www.geeksforgeeks.org/prime-numbers/
+#https://www.youtube.com/watch?v=fUJe3uKyJrs
 #-----------------------------------------------
 
 
