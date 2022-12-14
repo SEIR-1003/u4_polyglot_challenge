@@ -14,21 +14,19 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
-def add_list (values):
+def add_list (*values):
     sum = 0
     for element in values:
         if isinstance(element, (float, int)):
-            sum = sum + element
+            sum += element
         else: 
             sum = "NaN"
     print(sum)
     return (sum)
-# add_list()
+add_list(7)
 
-#Still doesn't work for no value added as a paramater
-    #Error: add_list() missing 1 required positional argument: 'values
-#Still doesn't work for a single value
-    #TypeError: 'int' object is not iterable
+#https://bas.codes/posts/python-asterisks
+#The asterisk in the parameters is equivalent to a spread operator, allows it to accept none, 1, or many paramaters
 
 #-----------------------------------------------
 
@@ -133,7 +131,7 @@ def is_prime(value):
                 print("true")
                 return "true"
 
-is_prime(4)
+# is_prime(4)
 #Resource Used:
 #https://www.geeksforgeeks.org/prime-numbers/
 #https://www.youtube.com/watch?v=fUJe3uKyJrs
