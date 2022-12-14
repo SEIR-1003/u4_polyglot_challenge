@@ -14,6 +14,19 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+#arguments = ['string','biggerstring']
+checkstrings =[ 1,2,3]
+def add_list(nums):
+    sum= 0
+    for num in nums:
+        if type(num) is int:
+         sum += num
+        else :
+            sum = float("nan")
+    return sum
+
+
+
 #-----------------------------------------------
 
 
@@ -31,6 +44,12 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+x = 'po'
+def remove_ends(x):
+    if len(x) < 3:
+        return ''
+    elif len(x) >= 3:
+        return x[1:-1]
 #-----------------------------------------------
 
 
@@ -50,6 +69,17 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+#x= 'A nut for a jar of tuna'
+string= "A nudfgsdsd oftuna"
+def is_palindrome(string):
+    reversephrase = string[::-1]
+
+    if string.lower().replace(' ','') == reversephrase.lower().replace(' ',''):
+       
+        return True
+    else:
+        return False
+
 #-----------------------------------------------
 
 
@@ -68,6 +98,15 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+x=8
+def isPrime(x):
+    for y in range(2,x):
+        if x %  y == 0:
+            return False
+        else: 
+            return True
+
+        
 #-----------------------------------------------
 
 
@@ -147,3 +186,10 @@
 #-----------------------------------------------
 # Solution Goes Here - >
 #-----------------------------------------------
+
+
+
+#print(add_list(checkstrings))
+#print(remove_ends(x))
+print(is_palindrome(string))
+#print(isPrime(x))
