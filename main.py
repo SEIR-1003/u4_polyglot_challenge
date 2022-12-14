@@ -12,11 +12,20 @@
 # add(7,-12) //=> -5
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
-#-----------------------------------------------
-# Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
+def add_list(*numbers):
+    sum = 0
+    for number in numbers:
+        if isinstance(number, (int, float)):
+            sum += number
+        else:
+            return "NaN"
+    return sum
 
 
+result = add_list(1, 50, 1.23)
+print(result)
+# -----------------------------------------------
 
 
 # Challenge 2: remove_ends
@@ -29,10 +38,17 @@
 # remove_ends('Led Zeppelin Rules'); //=> "ed Zeppelin Rule"
 # remove_ends('a'); //=> "" (empty string)
 
-#-----------------------------------------------
-# Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
+def remove_ends(string):
+    if len(string) < 3:
+        return " "
+    else:
+        return string[1:-1]
 
+
+result2 = remove_ends("Led Zepplin Rules")
+print(result2)
+# -----------------------------------------------
 
 
 # Challenge 3: is_palindrome
@@ -48,10 +64,18 @@
 # is_palindrome('A nut for a jar of tuna'); //=> true
 # is_palindrome(''); //=> true
 
-#-----------------------------------------------
-# Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
+def is_palindrome(string):
+    if len(string) <= 1:
+        return True
+    else:
+        normalized_string = string.lower().replace(" ", "")
+        return normalized_string == normalized_string[::-1]
 
+
+result3 = is_palindrome("rotor")
+print(result3)
+# -----------------------------------------------
 
 
 # Challenge 4: is_prime
@@ -61,25 +85,36 @@
 # - A prime number is a whole number (integer) greater than 1 that is evenly divisible by only itself.
 # Examples:
 # is_prime(2) //=> true
-# is_prime(3) //=> true 
+# is_prime(3) //=> true
 # is_prime(4) //=> false
 # is_prime(29) //=> true
 # is_prime(200) //=> false
 
-#-----------------------------------------------
-# Solution goes here ->
-#-----------------------------------------------
+# -----------------------------------------------
+def is_prime(number):
+    if number <= 1:
+        return False
+    else:
+        for i in range(2, number):
+
+            if number % i == 0:
+                return False
+
+            return True
 
 
+result4 = is_prime(4)
+print(result4)
+# -----------------------------------------------
 
 
 # Challenge 5: total_checkout_cost
 
-# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping. 
+# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping.
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
+# shopping_cart = [
 #   {"item": "headphones", "price": 25},
 #   {"item": "speakers", "price": 40 },
 #   {"item": "microphone", "price": 70},
@@ -88,9 +123,9 @@
 # ]
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
+# -----------------------------------------------
 
 
 # Challenge 6: fizz_buzz
@@ -105,11 +140,9 @@
 # fizz_buzz(22) //=> 22 ""
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
-
-
+# -----------------------------------------------
 
 
 # Challenge 7 - Chessboard Creator
@@ -119,31 +152,29 @@
 # Making a digital chessboard is an interesting way of visualising how loops can work together.
 
 # Your task is to write a function that takes two integers rows and columns and returns a chessboard pattern as a two dimensional array.
-
 # So chess_board(6,4) should return an array like this:
-
 [
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"]
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"],
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"],
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"]
 ]
 # And chess_board(3,7) should return this:
 
 
 [
-    ["O","X","O","X","O","X","O"],
-    ["X","O","X","O","X","O","X"],
-    ["O","X","O","X","O","X","O"]
+    ["O", "X", "O", "X", "O", "X", "O"],
+    ["X", "O", "X", "O", "X", "O", "X"],
+    ["O", "X", "O", "X", "O", "X", "O"]
 ]
 
-#The white spaces should be represented by an: 'O' and the black an: 'X'
+# The white spaces should be represented by an: 'O' and the black an: 'X'
 
 # The first row should always start with a white space 'O'
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
