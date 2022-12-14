@@ -14,6 +14,12 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def sum(numbers):
+    total = 0
+    for x in numbers:
+        total += x
+    return total
+print(sum((8, 2, 3, 0, 7)))
 #-----------------------------------------------
 
 
@@ -31,6 +37,9 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+function removeEnds(str) {
+  return str.slice(1, -1);
+}
 #-----------------------------------------------
 
 
@@ -50,6 +59,12 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+function isPalindrome(str) {
+  if (str.length === 0 || str.length === 1) return true;
+  str = str.replace(/\s/g, "").toLowerCase();
+  if (str === str.split("").reverse().join("")) return true;
+  else return false;
+}
 #-----------------------------------------------
 
 
@@ -68,6 +83,13 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+function isPrime(int) {
+  if (int < 2 || Math.ceil(int) !== int) return false;
+  for (i = 2; i < int - 1; i++) {
+    if (int % i === 0) return false;
+  }
+  return true;
+}
 #-----------------------------------------------
 
 
