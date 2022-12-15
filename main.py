@@ -14,6 +14,17 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+
+# def add_list():
+#     num_list = [2,4,6,8]
+#     sum = 0
+#     for x in num_list:
+#         sum = (sum + x)
+#         print(sum)
+
+# add_list()
+
+
 #-----------------------------------------------
 
 
@@ -30,7 +41,17 @@
 # remove_ends('a'); //=> "" (empty string)
 
 #-----------------------------------------------
-# Solution Goes Here - >
+# Solution Goes Here - > 
+
+def remove_ends():
+    text = "brad dogss"
+    # rem = text[1:],text[:-1]
+    print (text[1:-1])
+remove_ends()
+
+
+# rstrip('b','s')
+
 #-----------------------------------------------
 
 
@@ -49,7 +70,21 @@
 # is_palindrome(''); //=> true
 
 #-----------------------------------------------
-# Solution Goes Here - >
+# Solution Goes Here - >def is_palindrome(word):
+
+def is_palindrome(word):
+    return word == word[::-1]
+
+word = input("rotor: ")
+
+if is_palindrome(word):
+        print("{word} is a palindrome")
+else:
+        print("{word} is not a palindrome")
+
+
+def is_palindrom(word):
+
 #-----------------------------------------------
 
 
@@ -122,28 +157,28 @@
 
 # So chess_board(6,4) should return an array like this:
 
-[
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"]
-]
+# [
+#     ["O","X","O","X"],
+#     ["X","O","X","O"],
+#     ["O","X","O","X"],
+#     ["X","O","X","O"],
+#     ["O","X","O","X"],
+#     ["X","O","X","O"]
+# ]
 # And chess_board(3,7) should return this:
 
 
-[
-    ["O","X","O","X","O","X","O"],
-    ["X","O","X","O","X","O","X"],
-    ["O","X","O","X","O","X","O"]
-]
+# [
+#     ["O","X","O","X","O","X","O"],
+#     ["X","O","X","O","X","O","X"],
+#     ["O","X","O","X","O","X","O"]
+# ]
 
 #The white spaces should be represented by an: 'O' and the black an: 'X'
 
 # The first row should always start with a white space 'O'
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
