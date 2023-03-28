@@ -1,3 +1,5 @@
+from decimal import *  # SOURCE: https://docs.python.org/3/library/decimal.html
+
 # Challenge 1:  add_List
 
 # Prompt:
@@ -76,9 +78,9 @@ def is_palindrome(str):
     if len(str) == 0 or len(str) == 1:
         return True
 
-    formatedd_input = str.lower().replace(" ", "")
+    formated_input = str.lower().replace(" ", "")
 
-    if formatedd_input == formatedd_input[::-1]:
+    if formated_input == formated_input[::-1]:
         return True
     else:
         return False
@@ -140,17 +142,33 @@ shopping_cart = [
 
 def total_checkout_cost(dictionary, home_state):
     cost = 0
-    tax = 0.915
-    
+    tax = .085
+    cost_per_item = []
+
     ten_dollars = ["HI", "AK", "TX", "FL"]
     five_dollars = ["AL", "MS", "NV", "IL"]
-    
-    for prices in dictionary:
-        cost = prices.get("price") * tax
-    return cost
+
+    for items in dictionary:
+        cost = round(items.get("price") + Decimal(items.get("price") * tax), 2)
+        item = items.get("item")
+        if home_state in ten_dollars:
+            cost += 10
+            cost_per_item.append(
+                f"Home State: {home_state} Item: {item} Total Price: {cost}")
+        elif home_state in five_dollars:
+            cost += 5
+            cost_per_item.append(
+                f"Home State: {home_state} Item: {item} Total Price: {cost}")
+        else:
+            cost_per_item.append(
+                f"Home State: {home_state} Item: {item} Total Price: {cost}")
+
+    return cost_per_item
 
 
 # print(total_checkout_cost(shopping_cart, "FL"))
+# print(total_checkout_cost(shopping_cart, "AL"))
+# print(total_checkout_cost(shopping_cart, "NY"))
 
 
 # Challenge 6: fizz_buzz
@@ -164,6 +182,7 @@ def total_checkout_cost(dictionary, home_state):
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 # -----------------------------------------------
 # Solution Goes Here ->
+
 
 def fizz_buzz():
     for i in range(1, 51):
@@ -225,4 +244,4 @@ def chess_board(row, column):
         print(row)
 
 
-print(chess_board(8, 8))
+# print(chess_board(8, 8))
