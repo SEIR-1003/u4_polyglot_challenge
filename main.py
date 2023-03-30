@@ -12,12 +12,24 @@
 # add(7,-12) //=> -5
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+
+def add_list(*args):
+    # Check if there are no arguments
+    if not args:
+        return 0
+    # Check if all arguments are numbers
+    if not all(isinstance(arg, (int, float)) for arg in args):
+        return "NaN"
+    # Add up the numbers
+    total = sum(args)
+    return total
 
 
+print(add_list(3, -5))
 
+# -----------------------------------------------
 
 # Challenge 2: remove_ends
 
@@ -29,11 +41,19 @@
 # remove_ends('Led Zeppelin Rules'); //=> "ed Zeppelin Rule"
 # remove_ends('a'); //=> "" (empty string)
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
 
 
+def remove_ends(s):
+    if len(s) < 3:
+        return ""
+    else:
+        return s[1:-1]
+
+
+print(remove_ends('MacBook'))
 
 # Challenge 3: is_palindrome
 
@@ -48,11 +68,20 @@
 # is_palindrome('A nut for a jar of tuna'); //=> true
 # is_palindrome(''); //=> true
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
 
 
+def is_palindrome(s):
+    # Convert the string to lowercase and remove spaces
+    s = s.lower().replace(" ", "")
+    # Check if the string is the same forwards and backwards
+    return s == s[::-1]
+
+
+print(is_palindrome('A nut for a jar of tuna'))
+
+# -----------------------------------------------
 
 # Challenge 4: is_prime
 
@@ -61,42 +90,77 @@
 # - A prime number is a whole number (integer) greater than 1 that is evenly divisible by only itself.
 # Examples:
 # is_prime(2) //=> true
-# is_prime(3) //=> true 
+# is_prime(3) //=> true
 # is_prime(4) //=> false
 # is_prime(29) //=> true
 # is_prime(200) //=> false
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution goes here ->
-#-----------------------------------------------
 
 
+def is_prime(n):
+    # Check if the number is less than 2
+    if n < 2:
+        return False
+    # Check if the number is divisible by any number less than itself
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
+
+print(is_prime(27))
+
+# -----------------------------------------------
 
 # Challenge 5: total_checkout_cost
 
-# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping. 
+# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states receive free shipping.
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [
+    {"item": "headphones", "price": 25},
+    {"item": "speakers", "price": 40},
+    {"item": "microphone", "price": 70},
+    {"item": "lamp", "price": 15},
+    {"item": "tower fan", "price": 35},
+]
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
+
+def calculate_total_cost(shopping_cart, homestate):
+    subtotal = sum(item["price"] for item in shopping_cart)
+    tax = 0.085 * subtotal
+
+    if homestate in ["HI", "AK", "TX", "FL"]:
+        shipping = 10
+    elif homestate in ["AL", "MS", "NV", "IL"]:
+        shipping = 5
+    else:
+        shipping = 0
+
+    total_cost = subtotal + tax + shipping
+
+    # Round the total to two decimal places
+    total_cost = round(total_cost, 2)
+
+    return total_cost
+
+
+total_cost = calculate_total_cost(shopping_cart, "TX")
+print(total_cost)
+
+# -----------------------------------------------
 
 
 # Challenge 6: fizz_buzz
 
 # Prompt -> Write a program that prints the numbers from 1 to 50. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”
-# If your argument is not a number, return "is not A umber"
+# If your argument is not a number, return "is not a number"
 
 # Examples:
 # fizz_buzz(10) //=> 10 "Buzz"
@@ -105,11 +169,31 @@
 # fizz_buzz(22) //=> 22 ""
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
+
+def fizzbuzz(n):
+    if not isinstance(n, int):
+        return "is not a number"
+
+    output = ""
+    for i in range(1, n+1):
+        if i % 3 == 0 and i % 5 == 0:
+            output += "FizzBuzz\n"
+        elif i % 3 == 0:
+            output += "Fizz\n"
+        elif i % 5 == 0:
+            output += "Buzz\n"
+        else:
+            output += str(i) + "\n"
+
+    return output
 
 
+print(fizzbuzz(50))
+print(fizzbuzz("What a time to be alive!"))
+
+# -----------------------------------------------
 
 
 # Challenge 7 - Chessboard Creator
@@ -122,28 +206,52 @@
 
 # So chess_board(6,4) should return an array like this:
 
-[
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"]
-]
+# [
+#     ["O","X","O","X"],
+#     ["X","O","X","O"],
+#     ["O","X","O","X"],
+#     ["X","O","X","O"],
+#     ["O","X","O","X"],
+#     ["X","O","X","O"]
+# ]
 # And chess_board(3,7) should return this:
 
 
-[
-    ["O","X","O","X","O","X","O"],
-    ["X","O","X","O","X","O","X"],
-    ["O","X","O","X","O","X","O"]
-]
+# [
+#     ["O","X","O","X","O","X","O"],
+#     ["X","O","X","O","X","O","X"],
+#     ["O","X","O","X","O","X","O"]
+# ]
 
-#The white spaces should be represented by an: 'O' and the black an: 'X'
+# The white spaces should be represented by an: 'O' and the black an: 'X'
 
 # The first row should always start with a white space 'O'
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+
+def chess_board(rows, columns):
+    board = []
+    for r in range(rows):
+        row = []
+        for c in range(columns):
+            if (r+c) % 2 == 0:
+                row.append("O")
+            else:
+                row.append("X")
+        board.append(row)
+    return board
+
+
+board = chess_board(6, 4)
+for row in board:
+    print(" ".join(row))
+
+print()
+
+board = chess_board(3, 7)
+for row in board:
+    print(" ".join(row))
+
+# -----------------------------------------------
