@@ -5,17 +5,31 @@
 # - If called with no arguments, return 0 (zero).
 # - If any non-number arguments are in the argument, return "NaN"
 
+def add_list(*nums):
+    if  not nums:
+        print("0")
+    elif nums != int:
+        print("NaN")
+        return
+    else:
+        new_num = nums + nums
+        print(new_num)
+        return
+    
 
-# Examples:
-# add(1) //=> 1
-# add(1,50,1.23) //=> 52.23
-# add(7,-12) //=> -5
-# add("peanut_butter", "marshmellow_fluff") //=> NaN
 
-#-----------------------------------------------
-# Solution Goes Here - >
-#-----------------------------------------------
+# def add_list(*nums):
+#     sum = 0
+#     for num in nums:
+#         if type(num) == int:
+#             sum += num
+#         else:
+#             print("NaN")
+        
+#     print(sum)
+        
 
+# add_list(3, 'two')
 
 
 
@@ -29,9 +43,19 @@
 # remove_ends('Led Zeppelin Rules'); //=> "ed Zeppelin Rule"
 # remove_ends('a'); //=> "" (empty string)
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
+
+# def remove_ends(string):
+#     if len(string) <= 3:
+#         print('')
+#     else:
+#         print(string[1:len(string)-1])
+# remove_ends("Is this code snippet going to work")
+# remove_ends('wow')
+
+
 
 
 
@@ -48,9 +72,20 @@
 # is_palindrome('A nut for a jar of tuna'); //=> true
 # is_palindrome(''); //=> true
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
+
+# def is_palindrome(string):
+#     string = string.lower().replace(" ", " ")
+#     new_string = "".join(reversed(string))
+#     if len(new_string) <= 1:
+#         print("True")
+#     elif new_string == string:
+#         print(string)
+#     else:
+#         print("not a palindrome")
+# is_palindrome("racecar")
 
 
 
@@ -61,36 +96,52 @@
 # - A prime number is a whole number (integer) greater than 1 that is evenly divisible by only itself.
 # Examples:
 # is_prime(2) //=> true
-# is_prime(3) //=> true 
+# is_prime(3) //=> true
 # is_prime(4) //=> false
 # is_prime(29) //=> true
 # is_prime(200) //=> false
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution goes here ->
-#-----------------------------------------------
+# -----------------------------------------------
+# def is_prime(number):
+#     if number < 2:
+#         return False
+        
+#     for i in range(2, number):
+#         if number % i == 0:
+#             return False
+            
+#     else:
+#         return True
 
+# print(is_prime(1))
+# print(is_prime(7))
+# print(is_prime(8))
 
 
 
 # Challenge 5: total_checkout_cost
 
-# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping. 
+# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping.
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
+# -----------------------------------------------
+def price_calc(item):
+    print()
+
 
 
 # Challenge 6: fizz_buzz
@@ -105,11 +156,9 @@
 # fizz_buzz(22) //=> 22 ""
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here ->
-#-----------------------------------------------
-
-
+# -----------------------------------------------
 
 
 # Challenge 7 - Chessboard Creator
@@ -123,27 +172,27 @@
 # So chess_board(6,4) should return an array like this:
 
 [
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"],
-    ["O","X","O","X"],
-    ["X","O","X","O"]
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"],
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"],
+    ["O", "X", "O", "X"],
+    ["X", "O", "X", "O"]
 ]
 # And chess_board(3,7) should return this:
 
 
 [
-    ["O","X","O","X","O","X","O"],
-    ["X","O","X","O","X","O","X"],
-    ["O","X","O","X","O","X","O"]
+    ["O", "X", "O", "X", "O", "X", "O"],
+    ["X", "O", "X", "O", "X", "O", "X"],
+    ["O", "X", "O", "X", "O", "X", "O"]
 ]
 
-#The white spaces should be represented by an: 'O' and the black an: 'X'
+# The white spaces should be represented by an: 'O' and the black an: 'X'
 
 # The first row should always start with a white space 'O'
 
 
-#-----------------------------------------------
+# -----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+# -----------------------------------------------
